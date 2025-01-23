@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('home') }}" class="dashboard-button" style="font-size: 12px; position: absolute; top: 20px; left: 20px;">Back to Home</a>
+
+        <h1>Student Dashboard</h1>
+        <div class="buttons">
+            <button onclick="window.location.href='/register-student'" class="dashboard-button">Register Yourself</button>
+            <button onclick="window.location.href='/mark-attendance'" class="dashboard-button">Mark Attendance</button>
+            <button onclick="window.location.href='/view-attendance'" class="dashboard-button">View Attendance</button>
+        </div>
+    </div>
+</body>
+</html>

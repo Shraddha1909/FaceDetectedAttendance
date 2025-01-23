@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Student</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('student_dashboard') }}" class="dashboard-button" style="font-size: 12px; position: absolute; top: 20px; left: 20px;">Back to Dashboard</a>
+        <h1>Register Student</h1>
+        <form id="registerForm" method="POST" action="/register-student" enctype="multipart/form-data">
+            <label for="roll_no">Roll Number:</label>
+            <input type="text" id="roll_no" name="roll_no" maxlength="10" pattern="^[a-zA-Z0-9]+$" title="Roll number must be alphanumeric." required><br>
+
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" pattern="^[a-zA-Z\s]+$" title="Name must contain only letters and spaces." required><br>
+
+            <label for="photo">Upload Photo (Max: 200 KB):</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <div id="message" style="margin-top: 20px;"></div>
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $('#registerForm').on('submit', function (e) {
+                e.preventDefault();
+
+                const rollNo = $('#roll_no').val().trim();
+                const name = $('#name').val().trim();
+                const photo = $('#photo')[0].files[0];
+                const maxFileSize = 200 * 1024; // 200 KB
+
+                // Client-side Validation
+                if (!rollNo || !/^[a-zA-Z0-9]+$/.test(rollNo)) {
+                    $('#message').html('<p style="color: red;">Invalid Roll Number. Only alphanumeric characters are allowed.</p>');
+                    return;
+                }
+
+                if (!name || !/^[a-zA-Z\s]+$/.test(name)) {
+                    $('#message').html('<p style="color: red;">Invalid Name. Only letters and spaces are allowed.</p>');
+                    return;
+                }
+
+                if (!photo) {
+                    $('#message').html('<p style="color: red;">Please upload a photo.</p>');
+                    return;
+                }
+
+                if (photo.size > maxFileSize) {
+                    $('#message').html('<p style="color: red;">Photo exceeds the maximum size of 200KB please compress and upload;.</p>');
+                    return;
+                }
+
+                
+                const formData = new FormData(this);
+
+                $.ajax({
+                    url: '/register-student',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        $('#message').html('<p style="color: green;">' + response.message + '</p>');
+                        $('#registerForm')[0].reset();
+                    },
+                    error: function (xhr) {
+                        const error = xhr.responseJSON;
+                        $('#message').html('<p style="color: red;">' + error.message + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

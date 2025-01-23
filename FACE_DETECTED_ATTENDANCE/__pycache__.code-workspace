@@ -1,0 +1,29 @@
+{
+	"folders": [
+		{
+			"path": "__pycache__"
+		},
+		{
+			"path": ".vscode"
+		},
+		{
+			"path": "config"
+		},
+		{
+			"path": "models"
+		},
+		{
+			"path": "static/css"
+		},
+		{
+			"path": "templates"
+		},
+		{
+			"path": "Tests"
+		},
+		{
+			"path": "venv"
+		}
+	],
+	"settings": {}
+}

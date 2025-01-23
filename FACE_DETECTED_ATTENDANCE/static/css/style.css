@@ -1,0 +1,218 @@
+/* General Body Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 20px;
+    background: linear-gradient(135deg, #f3f4f6, #ffffff);
+}
+
+/* Main Container Styling */
+.container {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+}
+
+/* Page Title Styling */
+h1 {
+    font-size: 2.5em;
+    color: #4CAF50; /* Green */
+    margin-bottom: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Top Section Styling for Student List Page */
+.top-container {
+    display: flex;
+    justify-content: space-between; /* Align button to the left and heading to the center */
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* Back to Dashboard Button Styling */
+.back-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.back-button:hover {
+    background-color: #45a049;
+}
+
+/* Table Styling for Student List */
+.excel-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.excel-table th,
+.excel-table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.excel-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.excel-table td {
+    background-color: #ffffff;
+}
+
+.excel-table tr:hover {
+    background-color: #f9f9f9;
+}
+
+/* Photo Cell Styling */
+.photo-cell img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.photo-cell a {
+    text-decoration: none;
+}
+
+/* Button Group Styling */
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* General Button Styling */
+.button, .dashboard-button {
+    padding: 15px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-transform: uppercase;
+}
+
+/* Green Buttons */
+.button {
+    background-color: #4CAF50; /* Green */
+}
+
+.button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Blue Dashboard Buttons */
+.dashboard-button {
+    background-color: #007BFF; /* Blue */
+}
+
+.dashboard-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Styling */
+form {
+    text-align: left;
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="file"]:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+/* Submit Button Styling */
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+/* Message Styling */
+#message {
+    margin-top: 15px;
+    font-size: 1em;
+}
+
+/* Success Message */
+#message p.success {
+    color: #28a745; /* Green */
+    font-weight: bold;
+}
+
+/* Error Message */
+#message p.error {
+    color: #dc3545; /* Red */
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .buttons {
+        gap: 15px;
+    }
+
+    .button,
+    .dashboard-button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}

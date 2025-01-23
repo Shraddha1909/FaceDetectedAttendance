@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        
+        .dashboard-container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .dashboard-button {
+            display: inline-block;
+            margin: 15px;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .dashboard-button:hover {
+            background-color: #45a049;
+        }
+
+        .dashboard-heading {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Back button styling */
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #d73833;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <a href="{{ url_for('teacher_login') }}" class="dashboard-button" style="font-size: 12px; position: absolute; top: 20px; left: 20px;">Back to Home</a>
+
+    <!-- Main Content -->
+    <main class="dashboard-container">
+        <h1 class="dashboard-heading">Teacher Dashboard</h1>
+        
+        <!-- Buttons Section -->
+        <button onclick="window.location.href='/teacher/student_list'" class="dashboard-button">View Students</button>
+        <button onclick="window.location.href='/teacher/view-attendance'" class="dashboard-button">View Attendance</button>
+        
+
+    </main>
+</body>
+</html>

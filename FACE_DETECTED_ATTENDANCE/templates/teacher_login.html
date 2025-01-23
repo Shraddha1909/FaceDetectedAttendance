@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <a href="{{ url_for('home') }}" class="button" style="font-size: 12px; position: absolute; top: 20px; left: 20px;">Back</a>
+
+    <div class="container">
+        <h1>Teacher Login</h1>
+
+        <form action="/teacher-login" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <button type="submit" class="button">Login</button>
+        </form>
+
+        
+        {% if error %}
+            <div id="message">
+                <p class="error">{{ error }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

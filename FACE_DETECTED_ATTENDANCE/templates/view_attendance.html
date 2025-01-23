@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('student_dashboard') }}" class="dashboard-button" style="font-size: 12px; position: absolute; top: 20px; left: 20px;">Back to Dashboard</a>
+
+        <h1>View Attendance</h1>
+
+        <form action="/view-attendance" method="POST">
+            <label for="roll_no">Enter Roll Number:</label>
+            <input type="text" id="roll_no" name="roll_no" required>
+            <button type="submit" class="button">View Attendance</button>
+        </form>
+
+        {% if error %}
+        <div class="error" style="color: red; margin-top: 20px;">
+            <strong>{{ error }}</strong>
+        </div>
+        {% endif %}
+
+        {% if attendance %}
+        <div class="attendance-summary" style="margin-top: 20px;">
+            <h2>Attendance Summary for Roll Number: {{ roll_no }}</h2>
+            <p><strong>Total Days:</strong> {{ total_days }}</p>
+            <p><strong>Present Days:</strong> {{ present_days }}</p>
+            <p><strong>Attendance Percentage:</strong> {{ attendance_percentage }}%</p>
+        </div>
+
+        <h2>Attendance Records</h2>
+        <table class="attendance-table">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for record in attendance %}
+                <tr>
+                    <td>{{ record.date }}</td>
+                    <td>{{ record.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>
